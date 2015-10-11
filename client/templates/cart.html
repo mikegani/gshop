@@ -1,0 +1,25 @@
+<template name="Cart">
+	<ul>
+		<li>
+			<!-- TODO: is this right? href="" to empty -->
+			<a href="" class="cart"> <strong>Your Cart</strong> - {{amount}} ({{count}}) </a>
+		</li>
+		<li> {{> orders}} </li>
+	</ul>
+</template>
+
+<template name="orders">
+	<div class="orders">
+		<ol>
+			{{#each orders}}
+				<li> 
+					{{name}} - {{rp price}} 
+					<input type="text" name="qt" class="qt" value={{qt}}> 
+					- {{rp (calc price qt)}}
+					<button class="remove">Remove</button>
+				</li>
+			{{/each}}		
+			<li> <a href={{pathFor 'checkout'}} class="paynow">Pay Now</a> </li>
+		</ol>
+	</div>	
+</template>

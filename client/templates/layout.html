@@ -1,0 +1,12 @@
+<template name="layout">
+	<header class="navbar" role="navigation">
+		<div class="navbar-header">
+			<h1>Welcome to TGS e-Shop!</h1>
+			{{> loginButtons}}
+			<a class="home" href={{pathFor 'home'}}>Home</a>
+		</div>
+	</header>
+	<div id="main">
+		{{> yield}}
+	</div>
+</template>

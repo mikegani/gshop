@@ -1,0 +1,9 @@
+<!-- TODO: duplicate with cart html template -->
+<template name="checkout">
+	<h2> Order ID: {{orderId}} </h2>
+	{{#each orders}}
+		<li> 
+			{{name}} @ {{rp price}} x {{qt}} = {{rp (calc price qt)}}
+		</li>
+	{{/each}}		
+</template>

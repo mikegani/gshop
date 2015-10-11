@@ -1,0 +1,9 @@
+<template name="Products">
+	<ul>
+		<li><strong>PRODUCTS</strong></li>
+		{{#each products}}
+		<li>{{name}} ({{qt}}) - <strong> {{rp price}} </strong> 
+			<button class="additem">Add To Cart</button></li>
+		{{/each}}
+	</ul>
+</template>
