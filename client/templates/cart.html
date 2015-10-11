@@ -19,7 +19,9 @@
 					<button class="remove">Remove</button>
 				</li>
 			{{/each}}		
-			<li> <a href={{pathFor 'checkout'}} class="paynow">Pay Now</a> </li>
+			{{#if ordersExist}}
+				<li> <a href={{pathFor 'checkout'}} class="paynow">Pay Now</a> </li>
+			{{/if}}
 		</ol>
 	</div>	
 </template>
