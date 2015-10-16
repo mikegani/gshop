@@ -1,0 +1,11 @@
+<template name="orderhistory">
+	<!--{{> quickForm collection="OrderDB" id="insertPostForm" type="insert"}}!-->
+	<h2>order history</h2>
+	<ol>
+	{{#each orderlist}}
+		<li>
+			<a href="{{pathFor 'order'}}">{{orderId}}</a> - {{total}} - {{buyer.buyerid}} 
+		</li>
+	{{/each}}
+	</ol>
+</template>

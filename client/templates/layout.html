@@ -1,9 +1,14 @@
 <template name="layout">
 	<header class="navbar" role="navigation">
 		<div class="navbar-header">
-			<h1>Welcome to TGS e-Shop!</h1>
+			<h1>Welcome to TGS e-Store!</h1>
 			{{> loginButtons}}
-			<a class="home" href={{pathFor 'home'}}>Home</a>
+			{{> sAlert}}
+			<a class="home" href={{pathFor 'home'}}>Home</a> -
+			{{#if currentUser}}
+				<a href={{pathFor 'user' _id=currentUser._id}}>Edit Profile</a>
+				<a href={{pathFor 'orderhistory' _id=currentUser._id}}>Order History</a>
+			{{/if}}
 		</div>
 	</header>
 	<div id="main">

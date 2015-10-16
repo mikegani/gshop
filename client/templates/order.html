@@ -1,0 +1,12 @@
+<template name="order">
+	{{#if currentUser}}
+	<h1>Edit Order</h1>
+	<ol>
+		<ul>
+			{{>quickForm collection="OrderDB" id="updatePostForm" type="update" doc=this}}
+		</ul>
+	</ol>
+	{{/if}}
+
+	<a clas="btn" href="/orderhistory">Back</a>
+</template>

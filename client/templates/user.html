@@ -1,0 +1,11 @@
+<template name="user">
+	{{#if currentUser}}
+	<h1>Edit Profile</h1>
+	<ol>
+		<ul>
+			{{>quickForm collection="Meteor.users" id="updatePostForm" type="update" doc=this}}
+		</ul>
+	</ol>
+	{{/if}}
+
+</template>

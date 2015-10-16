@@ -1,9 +1,16 @@
 <!-- TODO: duplicate with cart html template -->
 <template name="checkout">
-	<h2> Order ID: {{orderId}} </h2>
+	<h2> Your Cart </h2>
+	{{#autoForm collection="OrderDB" id="insertPostForm" type="insert"}}
 	{{#each orders}}
 		<li> 
-			{{name}} @ {{rp price}} x {{qt}} = {{rp (calc price qt)}}
+				{{> afQuickField name="itemID" value=name}}
+				{{> afQuickField name="itemName" value=name}}
+				{{> afQuickField name="itemPrice" value=price}}
+				{{> afQuickField name="itemQt" value=qt}}
+				{{> afQuickField name="itemTotal" value=(calc price qt)}}
+				{{name}} @ {{rp price}} x {{qt}} = {{rp (calc price qt)}}
 		</li>
-	{{/each}}		
+	{{/each}}	
+	{{/autoForm}}
 </template>
