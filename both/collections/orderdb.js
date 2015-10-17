@@ -1,4 +1,4 @@
-Schemas.Receipient = new SimpleSchema({
+Schemas.orderReceipient = new SimpleSchema({
     firstName: {type: String},
     lastName: {type: String},    
     mobile: {type: String},
@@ -6,15 +6,7 @@ Schemas.Receipient = new SimpleSchema({
     address: {type: String}
 });
 
-Schemas.Item = new SimpleSchema({
-    itemID: {type: String},
-    itemName: {type: String},    
-    itemPrice: {type: Number},
-    itemQt: {type: Number},
-    itemTotal: {type: Number},
-});
-
-Schemas.Payment = new SimpleSchema({
+Schemas.orderPayment = new SimpleSchema({
     option: {
         type: String
     },
@@ -22,21 +14,20 @@ Schemas.Payment = new SimpleSchema({
         type: String,
         optional: true
     }
+}); 
+
+Schemas.orderBuyer = new SimpleSchema({
+    buyerid: {type: String}
 });
 
-Schemas.Buyer = new SimpleSchema({
-    buyerid: {type: String},
-    payment: {type: Schemas.Payment}
-});
-
-Schemas.OrderList = new SimpleSchema({
+Schemas.Order = new SimpleSchema({
     orderId: {type: String},
     orderList: {type: Array},
     'orderList.$': {
-        type: Schemas.Item
+        type: Schemas.Product
     },
-    buyer: {type: Schemas.Buyer},
-    receipient: {type: Schemas.Receipient},
+    buyer: {type: Schemas.orderBuyer},
+    receipient: {type: Schemas.orderReceipient},
     total: {type: Number}
 });
 
@@ -45,5 +36,5 @@ Schemas.test = new SimpleSchema({
     testamount: {type: Number}
 });
 
-OrderDB.attachSchema(Schemas.OrderList);
+OrderDB.attachSchema(Schemas.Order);
 TestDB.attachSchema(Schemas.test);

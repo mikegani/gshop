@@ -17,6 +17,46 @@ Schemas.UserProfile = new SimpleSchema({
         type: String,
         optional: true
     },
+    telephone: {
+        type: Number,
+        optional: true
+    },
+    mobile: {
+        type: Number,
+        optional: true
+    },
+    fax: {
+        type: Number,
+        optional: true
+    },
+    addreses: {
+        type: Array,
+        optional: true
+    },
+    "addreses.$": {
+        type: Object
+    },
+    "addreses.$.nickname": {
+        type: String
+    },
+    "addreses.$.address1": {
+        type: String
+    },
+    "addreses.$.address2": {
+        type: String
+    },
+    "addreses.$.city": {
+        type: String
+    },
+    "addreses.$.state": {
+        type: String
+    },
+    "addreses.$.country": {
+        type: String
+    },
+    "addreses.$.zipcode": {
+        type: String
+    },
     birthday: {
         type: Date,
         optional: true

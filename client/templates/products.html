@@ -1,6 +1,10 @@
 <template name="Products">
 	<ul>
-		<li><strong>PRODUCTS</strong></li>
+		<li>
+			<strong>PRODUCTS</strong>
+			<button id="newprodbtn">Add New Products</button>
+			<div id="afnewprod">{{> quickForm collection="ProdDB" id="insertNewProduct" type="insert"}}</div>
+		</li>
 		{{#each products}}
 		<li>{{name}} ({{qt}}) - <strong> {{rp price}} </strong> 
 			<button class="additem">Add To Cart</button></li>

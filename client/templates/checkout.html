@@ -2,15 +2,22 @@
 <template name="checkout">
 	<h2> Your Cart </h2>
 	{{#autoForm collection="OrderDB" id="insertPostForm" type="insert"}}
-	{{#each orders}}
+	<ol>
+		<li><button>Shipping Address</button><div id="co_sa"></div></li>
+		<li><button>Payment Options</button><div id="co_po">co_po</div></li>
+		<li><button>Review Item and Shipping Options</button><div id="co_riso">{{> orderlist}}</div></li>
+		<li><button>Pay Now</button></li>
+	</ol>
+	{{/autoForm}}
+</template>
+
+<template name="orderlist">
+	<ul>
+		{{#each orders}}
 		<li> 
-				{{> afQuickField name="itemID" value=name}}
-				{{> afQuickField name="itemName" value=name}}
-				{{> afQuickField name="itemPrice" value=price}}
-				{{> afQuickField name="itemQt" value=qt}}
-				{{> afQuickField name="itemTotal" value=(calc price qt)}}
+				{{>quickForm id=genid type="update-pushArray" collection=OrderDB doc=this scope="orderList"}}
 				{{name}} @ {{rp price}} x {{qt}} = {{rp (calc price qt)}}
 		</li>
-	{{/each}}	
-	{{/autoForm}}
+		{{/each}}	
+	</ul>
 </template>
